@@ -4,48 +4,50 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 :root {
-    --purple: #b42bc1;
-    --darkpurple: #47064d;
-    --lightpurple: #d15adc;
+    --purple: #c93fef;
+    --darkpurple: #560f51;
+    --lightpurple: #d686f1;
     --correct: #51db32;
     --incorrect: #ba3432;
   }
 h1, h2, h3 {
     margin-bottom: 2%;
+    margin-top: 2%;
 }
 body {
-    margin: 0;
     display: flex;
-    width: 100vw;
-    height: 100vh;
-    padding: 10px;
+    flex-direction: column;
+    width: 90vw;
+    height: 90vh;
     text-align: center;
+    margin-left: 0;
 }
 main {
-    justify-content: left;
-    width: 80%;
-    padding: 20px;
-    margin-left: 20px;
+    margin-left: 0;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 50px;
     flex-direction: column;
+    margin: 0;
 }
-aside {
-    justify-content: right;
-    padding: 20px;
-    width: 20%;
-    background-color: aliceblue;
+
+hr {
+    border: 1px dashed var(--darkpurple);
+    margin: 4% 0;
 }
 button {
-    width: 40%;
-    height: 50px;
+    width: 100%;
+    min-height: 50px;
     margin: 2% 2%;
     background-image: linear-gradient(5deg, var(--purple), var(--darkpurple));
     /* background-color: var(--purple); */
     color: white;
     padding: 10px;
-    border: 2px solid black;
+    border: 3px solid black;
     border-radius: 10px;
-    font-size: 16px;
-
+    font-size: 14px;
+    text-align: left;
+    text-indent: 4%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -60,12 +62,21 @@ button:hover {
     font-size: 20px;
     padding: 15px;
     font-size: 20px;
+    text-align: center;
+    text-indent: 0;
 }
 
-/* #questions1, #questions2,  button {
-    display: flex;
+#all-questions {
     flex-direction: column;
-} */
+    justify-items: center;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 5%;
+}
+
+.timer {
+    font-size: 30px;
+}
 
 .hidden {
     display: none;

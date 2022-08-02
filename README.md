@@ -21,8 +21,8 @@ THEN I can save my initials and my score
 
 ## Screenshots
 
-![This is the first look once you go inside the website.](./assets/images/quiz-initial-look.png)
-![This is the look once you are inside the questions.](./assets/images/quiz-inside-questions.png)
+![This is the first look once you go inside the website.](../assets/images/quiz-initial-look.png)
+![This is the look once you are inside the questions.](../assets/images/quiz-inside-questions.png)
 
 
 ## URL

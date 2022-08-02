@@ -1,5 +1,8 @@
 # APIs and JavaScript Timed Quiz
 
+This has been the hardest project to complete so far. As you can see, the quiz should function, the questions are shuffled. They show correct or incorrect by adding color to the button, green if correct and red for incorrect. 
+
+
 ## Acceptance Criteria
 
 ```
@@ -16,12 +19,10 @@ WHEN the game is over
 THEN I can save my initials and my score
 ```
 
-## About the project
+## Screenshots
 
-This has been the hardest project to complete so far. As you can see, the quiz should function, the questions are shuffled. They show correct or incorrect by adding color to the button, green if correct and red for incorrect. 
-
-![This is the first look once you go inside the website.](./Assets/images/quiz-initial-look.png)
-![This is the look once you are inside the questions.](./Assets/images/quiz-inside-questions.png)
+![This is the first look once you go inside the website.](./assets/images/quiz-initial-look.png)
+![This is the look once you are inside the questions.](./assets/images/quiz-inside-questions.png)
 
 
 ## URL

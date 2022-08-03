@@ -6,15 +6,13 @@ var refreshButtonEl = document.getElementById('refresh-btn')
 var footerArea = document.querySelector('#footer')
 var questionElement = document.getElementById('question')
 var answerButtonElement = document.getElementById('answer-btns')
-// var answerCont = document.querySelector('#answerCont')
-// var answerBtn = document.createElement('button')
 
-var shuffledQuestions, currentQuestionIndex
+var shuffledQuestions;
+var currentQuestionIndex;
 
 var score = 0; 
 
 // Timer 
-
 var remainingTime = 60;
 var isStopped = true;
 // Select Countdown container
@@ -43,8 +41,7 @@ const startTimer = () => {
 };
 
 
-// All questions
-
+// List of all questions
 var questions = [
   {
     question: 'Commonly used data types DO NOT include:',
@@ -138,7 +135,6 @@ var questions = [
 },
 ]
 
-
 // Start quizz event
 startButton.addEventListener('click', startQuiz)
 
@@ -150,14 +146,16 @@ function startQuiz() {
     startDiv.classList.add('hidden'); 
     questionContainer.classList.remove('hidden');
     footerArea.classList.remove('hidden');
+    
     shuffledQuestions = questions.sort(() => Math.random() - .5);
     currentQuestionIndex = 0
     setNextQuestion()
-
 }
+
 function setNextQuestion() {
   resetState()
   showQuestion(shuffledQuestions[currentQuestionIndex])
+  // showQuestion()
 }
 
 function showQuestion(question) {
@@ -173,6 +171,23 @@ function showQuestion(question) {
     answerButtonElement.appendChild(button)
   })
 }
+
+//Trying to approach questions without shuffling
+
+// function showQuestion() {
+// var currentQuestion = questions[currentQuestionIndex];
+// var questionElement = document.getElementById('question');
+// questionElement.textContent = currentQuestion.question;
+// answerButtonElement.innerHTML = '';
+// for (var i = 0; i < currentQuestion.answers.length; i++) {
+// var choice = currentQuestion.answers[i].text;
+// var choiceBtn = document.createElement('button');
+// choiceBtn.setAttribute('class', 'choice');
+// choiceBtn.setAttribute('value', choice);
+// answerButtonElement.appendChild(choiceBtn);
+// console.log(choice)
+// }
+// }
   
 function resetState(){
 while (answerButtonElement.firstChild) {
@@ -209,19 +224,3 @@ refreshButtonEl.addEventListener("click", reload, false);
 function reload() {
   reload = location.reload();
 }
-
-
-  // Possible code:
-  // questionElement.innerHTML = questions[currentQuestionIndex].question
-  //     for (let i = 0; i < questions[i].answers.length; i++ ) {
-  //      var answerBtn = document.createElement('button')
-  //     answerBtn.innerHTML = questions[currentQuestionIndex].answers[i].text
-  //     answerBtn.classList.add('btn')
-  //     answerCont.appendChild(answerBtn)
-  //     if (answers) {
-  //       answerBtn.dataset.true = answers.true
-  //     }
-  //     answerBtn.addEventListener('click', selectAnswer)
-  //     answerButtonsElement.appendChild(answerBtn)
-  //     console.log("buttons")
-  //   }

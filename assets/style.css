@@ -41,7 +41,7 @@ hr {
 }
 .btn {
     width: 90%;
-    min-height: 50px;
+    min-height: 40px;
     margin: 2% 2%;
     background-image: linear-gradient(5deg, var(--purple), var(--darkpurple));
     /* background-color: var(--purple); */
@@ -68,10 +68,10 @@ hr {
     background-image: linear-gradient(5deg, var(--wrong), red);
 }
 
-.start-btn, .refresh-btn {
+.start-btn, .refresh-btn, .submit-btn {
     width: auto;
     height: auto;
-    font-size: 20px;
+    font-size: 18px;
     padding: 15px;
     font-size: 20px;
     text-align: center;

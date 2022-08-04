@@ -14,7 +14,7 @@
     <div id="start-msg">
       <h1>JavaScript Timed Quiz</h1>
       <p>Try to answer as many questions as you can for the one minute to get the maximum score possible. Each question
-        answered wrongly will deduct 10 seconds off the timer.<br />
+        answered wrongly will deduct 5 seconds off the timer.<br />
         Click on "Begin Quizz" when you are ready. <strong>Good luck!</strong>
       </p>
       <button id="start-btn" class="start-btn btn">Begin Quiz</button>
@@ -24,15 +24,15 @@
       <div id="question-container" class="hidden">
         <div id="question"></div>
         <div id="answer-btns">
+          <!-- <button class="btn"></button>
           <button class="btn"></button>
           <button class="btn"></button>
-          <button class="btn"></button>
-          <button class="btn"></button>
+          <button class="btn"></button> -->
         </div>
       </div>
     </div>
 
-    <div id="footer" class="hidden">
+    <div id="time-cont" class="hidden">
       <hr>
       <h3>Seconds Left: <br />
         <span id="timer">60</span>
@@ -40,6 +40,19 @@
       <button id="refresh-btn" class="refresh-btn btn">
         Start Over
       </button>
+      <button id="submit-btn" class="submit-btn btn">
+        Submit Results
+      </button>
+    </div>
+
+    <div id="final-screen" class="hidden">
+      <h2>The Quiz is Over!</h2>
+      <h4>Your final score is<span id="final-score"></span>.
+      </h4>
+      <h4>
+        Enter initials: <input type="text" id="initials" max="3" />
+        <button id="submit" class="submit-btn btn">Submit</button>
+      </h4>
     </div>
 
   </main>

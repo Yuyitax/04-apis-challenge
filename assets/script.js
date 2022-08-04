@@ -3,12 +3,15 @@ var startDiv = document.getElementById('start-msg');
 var questionContainer = document.querySelector('#question-container');
 var startTimerBtn = document.getElementById('start-btn');
 var refreshButtonEl = document.getElementById('refresh-btn')
-var footerArea = document.querySelector('#footer')
+var footerArea = document.querySelector('#time-cont')
 var questionElement = document.getElementById('question')
 var answerButtonElement = document.getElementById('answer-btns')
+var initialsEl = document.getElementById('initials');
+var submitScore = document.getElementById("submit");
+
 
 var shuffledQuestions;
-var currentQuestionIndex;
+var currentQuestionIndex = 0;
 
 var score = 0; 
 
@@ -148,17 +151,21 @@ function startQuiz() {
     footerArea.classList.remove('hidden');
     
     shuffledQuestions = questions.sort(() => Math.random() - .5);
-    currentQuestionIndex = 0
+  console.log(shuffledQuestions)
     setNextQuestion()
 }
 
 function setNextQuestion() {
   resetState()
-  showQuestion(shuffledQuestions[currentQuestionIndex])
+  console.log("Hello")
+  console.log(currentQuestionIndex)
+  showQuestion(shuffledQuestions[currentQuestionIndex+1])
   // showQuestion()
+  console.log("next question")
 }
 
 function showQuestion(question) {
+  console.log(question)
   questionElement.innerText = question.question
   question.answers.forEach(answer => {
     var button = document.createElement('button')
@@ -168,12 +175,18 @@ function showQuestion(question) {
       button.dataset.correct = answer.correct
     }
     button.addEventListener('click', selectAnswer)
+
     answerButtonElement.appendChild(button)
+    
+
   })
 }
+// answerBtn.addEventListener('click', function(){
+//   console.log("next question2")
+// })
 
-//Trying to approach questions without shuffling
 
+//Attempting to generate questions without the shuffling criteria
 // function showQuestion() {
 // var currentQuestion = questions[currentQuestionIndex];
 // var questionElement = document.getElementById('question');
@@ -189,20 +202,27 @@ function showQuestion(question) {
 // }
 // }
   
-function resetState(){
-while (answerButtonElement.firstChild) {
-  answerButtonElement.removeChild
-  (answerButtonElement.firstChild)
-}
+function resetState() {
+  answerButtonElement.innerHTML = ""
+  // console.log(answerButtonElement.children)
+
+// while (answerButtonElement.firstChild) {
+//   answerButtonElement.removeChild
+//   (answerButtonElement.firstChild)
+// }
 }
 
 function selectAnswer(e) {
+  currentQuestionIndex +=1
+  console.log('Select Answer')
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
+  console.log(correct)
   setStatusClass(document.body, correct)
   Array.from(answerButtonElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
   })
+
 }
 
 function setStatusClass(element, correct) {
@@ -210,8 +230,10 @@ function setStatusClass(element, correct) {
   if (correct) {
     element.classList.add('correct')
   } else {
-    element.classList.add('wrong')
-  }
+    element.classList.add('wrong');
+    remainingTime --- 5;
+  } 
+  setNextQuestion()
 }
 
 function clearStatusClass(element) {
@@ -219,8 +241,44 @@ function clearStatusClass(element) {
   element.classList.remove('wrong')
 }
 
-// Start Over button function
+// Start Over button function -- working
 refreshButtonEl.addEventListener("click", reload, false);
 function reload() {
   reload = location.reload();
 }
+
+
+// Final Score Section
+function saveHighscore() {
+  // get value of input box
+  var initials = initialsEl.value.trim();
+
+  if (initials !== "") {
+    // get saved scores from localstorage, or if not any, set to empty array
+    var highscores =
+      JSON.parse(window.localStorage.getItem("highscores")) || [];
+
+    // format new score object for current user
+    var newScore = {
+      score: time,
+      initials: initials
+    };
+
+    // save to localstorage
+    highscores.push(newScore);
+    window.localStorage.setItem("highscores", JSON.stringify(highscores));
+
+    // redirect to next page
+    window.location.href = "score.html";
+  }
+}
+
+function checkForEnter(event) {
+  // "13" represents the enter key
+  if (event.key === "Enter") {
+    saveHighscore();
+  }
+}
+
+// submit initials
+submitScore.onclick = saveHighscore;

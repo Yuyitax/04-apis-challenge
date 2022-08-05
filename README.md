@@ -22,7 +22,10 @@ THEN I can save my initials and my score
 ## Screenshots
 
 ![This is the first look once you go inside the website.](./assets/quiz-initial-look.png)
+
 ![This is the look once you are inside the questions.](./assets/quiz-inside-questions.png)
+
+![This is the look once you click on a correct or an incorrect answer. Correct will show green and the rest will be red](./assets/correct-and-incorrect-visuals.png)
 
 
 ## URL
